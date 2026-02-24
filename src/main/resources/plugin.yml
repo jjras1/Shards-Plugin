@@ -1,0 +1,41 @@
+name: ShardsPlugin
+version: 1.0.0
+main: com.shards.plugin.ShardsPlugin
+api-version: '1.21'
+author: YourName
+softdepend: [Vault, Essentials, WorldEdit, PlaceholderAPI]
+description: Shards currency system with AFK zones and customizable shop
+
+commands:
+  shardshop:
+    description: Open the shard shop
+    usage: /<command>
+    aliases: [shop, ss]
+  shards:
+    description: Shard management commands
+    usage: /<command> <give|set|take|balance|reload> [player] [amount]
+    permission: shards.admin
+  afkzone:
+    description: Manage AFK zones
+    usage: /<command> <create|delete|list|info> [name]
+    permission: shards.admin
+    aliases: [zone, afk]
+  shopeditor:
+    description: Open the shop editor GUI
+    usage: /<command>
+    permission: shards.admin
+    aliases: [shopedit, editshop]
+
+permissions:
+  shards.admin:
+    description: Access to all shard admin commands
+    default: op
+  shards.shop:
+    description: Access to the shard shop
+    default: true
+  shards.afk:
+    description: Earn shards from AFK zones
+    default: true
+  shards.afk.bypass:
+    description: Bypass AFK zone requirements
+    default: op

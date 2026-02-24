@@ -1,0 +1,151 @@
+debug: false
+
+database:
+  type: 'SQLITE'
+  host: 'localhost'
+  port: 3306
+  database: 'shards'
+  username: 'root'
+  password: 'password'
+
+integrations:
+  vault: true
+  essentialsx: true
+  worldedit: true
+  placeholderapi: true
+  smart_spawners: true
+  better_spawners: true
+  donut_crates: true
+
+currency:
+  name: 'Shard'
+  name_plural: 'Shards'
+  symbol: '⚡'
+  starting_balance: 0
+
+afk_zones:
+  check_interval: 20
+  reward_interval: 60
+  require_permission: false
+  zones: {}
+
+shop:
+  title: '&6&l⚡ Shard Shop'
+  size: 54
+  items:
+    spawner_pig:
+      slot: 10
+      type: 'SPAWNER'
+      spawner_type: 'PIG'
+      material: 'SPAWNER'
+      name: '&d&lPig Spawner'
+      lore:
+        - '&7Cost: &e{cost} {currency}'
+        - ''
+        - '&aClick to purchase!'
+      cost: 1000
+      enabled: true
+      commands:
+        - 'smartspawner give {player} pig 1'
+    
+    spawner_cow:
+      slot: 11
+      type: 'SPAWNER'
+      spawner_type: 'COW'
+      material: 'SPAWNER'
+      name: '&d&lCow Spawner'
+      lore:
+        - '&7Cost: &e{cost} {currency}'
+        - ''
+        - '&aClick to purchase!'
+      cost: 1500
+      enabled: true
+      commands:
+        - 'smartspawner give {player} cow 1'
+    
+    crate_key_common:
+      slot: 20
+      type: 'CRATE_KEY'
+      crate_name: 'common'
+      material: 'TRIPWIRE_HOOK'
+      name: '&a&lCommon Crate Key'
+      lore:
+        - '&7Cost: &e{cost} {currency}'
+        - ''
+        - '&7Opens common crates!'
+        - '&aClick to purchase!'
+      cost: 500
+      enabled: true
+      commands:
+        - 'crate givekey {player} common 1'
+    
+    crate_key_rare:
+      slot: 21
+      type: 'CRATE_KEY'
+      crate_name: 'rare'
+      material: 'TRIPWIRE_HOOK'
+      name: '&b&lRare Crate Key'
+      lore:
+        - '&7Cost: &e{cost} {currency}'
+        - ''
+        - '&7Opens rare crates!'
+        - '&aClick to purchase!'
+      cost: 1000
+      enabled: true
+      commands:
+        - 'crate givekey {player} rare 1'
+
+messages:
+  prefix: '&6&l⚡ &6Shards &8»&r '
+  
+  balance: '&7Your balance: &e{balance} {currency}'
+  balance_other: '&7{player}''s balance: &e{balance} {currency}'
+  
+  transaction:
+    given: '&aYou gave &e{amount} {currency} &ato {player}'
+    received: '&aYou received &e{amount} {currency} &afrom {player}'
+    taken: '&cYou took &e{amount} {currency} &cfrom {player}'
+    set: '&aSet {player}''s balance to &e{amount} {currency}'
+    insufficient: '&cInsufficient shards! You need &e{amount} {currency}'
+  
+  shop:
+    purchased: '&aSuccessfully purchased &e{item}&a!'
+    insufficient_funds: '&cYou need &e{amount} {currency} &cto purchase this!'
+    error: '&cAn error occurred while processing your purchase!'
+  
+  editor:
+    item_saved: '&aShop item saved successfully!'
+    item_deleted: '&cShop item deleted!'
+    item_created: '&aShop item created!'
+    invalid_slot: '&cInvalid slot number!'
+    invalid_cost: '&cInvalid cost amount!'
+    enter_value: '&eType the new value in chat (or ''cancel'' to abort):'
+    cancelled: '&cAction cancelled.'
+    click_to_edit: '&eClick an item to edit it'
+  
+  afk:
+    reward: '&a+{amount} {currency} &7(AFK Reward)'
+    entered_zone: '&7You entered AFK zone: &e{zone}'
+    left_zone: '&7You left AFK zone: &e{zone}'
+  
+  zone:
+    created: '&aCreated AFK zone: &e{zone}'
+    deleted: '&cDeleted AFK zone: &e{zone}'
+    already_exists: '&cAFK zone &e{zone} &calready exists!'
+    not_found: '&cAFK zone &e{zone} &cnot found!'
+    no_selection: '&cYou must make a WorldEdit selection first!'
+    list_header: '&6&lAFK Zones:'
+    list_entry: '&8- &e{zone} &7({world}, {reward}/min)'
+    info_header: '&6&lZone Info: &e{zone}'
+    info_world: '&7World: &e{world}'
+    info_reward: '&7Reward: &e{reward} {currency}/minute'
+    info_bounds: '&7Bounds: &e{min} &7to &e{max}'
+  
+  errors:
+    player_not_found: '&cPlayer not found!'
+    invalid_amount: '&cInvalid amount!'
+    no_permission: '&cYou don''t have permission to do that!'
+    console_only: '&cThis command can only be run from console!'
+    player_only: '&cThis command can only be run by a player!'
+  
+  reload: '&aConfiguration reloaded!'
