@@ -86,8 +86,8 @@ If you want placeholders, you **must install the Placeholder Plugin** alongside 
 
 ## 🛠 Requirements
 
-- Paper / Spigot server
-- Java 17+ recommended
+- Paper / Spigot server (1.21.11)
+- Java 21 required
 - Vault for economy support
 - Optional integrations listed above
 
